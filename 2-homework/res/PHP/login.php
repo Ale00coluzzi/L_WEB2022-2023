@@ -1,5 +1,5 @@
 <?php
-
+session_start(); 
 require('config.php');
 
 $connessione = new mysqli($host, $user, $password, $db);
