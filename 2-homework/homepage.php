@@ -1,7 +1,12 @@
 <?php
     session_start();
-    $tema_scuro='';
-    $_SESSION[$_tema_scuro]=FALSE;
+    
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"]=="scuro") {
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_dark.css\"type=\"text/css\"/>";
+    }
+    else{
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_hmp.css\"type=\"text/css\"/>";
+    }
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -11,10 +16,9 @@
 
 <head>
     <title>La casa del libro: recensioni, letture... </title>
-    <link rel="stylesheet" href="res/CSS/external_hmp.css" type="text/css" />
 </head>
 
-<body style="background-color: rgb(246, 218, 190);">
+<body>
     <h1 class="titolo">LA CASA DEL LIBRO</h1>
 
    <ul class="menu">
@@ -23,14 +27,11 @@
     <li><a href="https://www.lafeltrinelli.it/">Noi di solito compriamo i libri qui</a></li>
     <li><a href="https://www.qlibri.it/">Per altre recensioni clicca qui</a></li>
 
-    <?php   
-            echo"<button onclick> cambiatema</button>";
-            if($_SERVER["REQUEST_METHOD"]=='POST') {
-                $_SESSION[$tema_scuro]=!$_SESSION[$tema_scuro]; //nega la variabile se il form è stato inviato
-            }
-            
-            echo "<form action = \"res/PHP/dark.php\"></form>";
-
+    <?php    
+            echo "<form action = \"res/PHP/dark.php\" method='POST'>"; //submit serve per inviare il valore a questo file
+            echo"<button name=\"bottone_c\" type=\"submit\" value=\"chiaro\">&#x2600</button>";
+            echo"<button name=\"bottone_s\" type=\"submit\" value=\"scuro\">&#x1F315</button>";
+            echo"</form>";
 
         if(isset($_SESSION['loggato']) && $_SESSION['loggato'] === 'true'){//isset verifica se loggato è settata
             echo "<hr/>" . $_SESSION['nome'] . "<br/>";
