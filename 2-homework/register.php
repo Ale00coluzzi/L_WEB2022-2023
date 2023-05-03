@@ -32,7 +32,10 @@
             echo "<h3>EMAIL GIÀ ESISTENTE!</h3>";
             unset($_SESSION['errore_e']);//la unsetto altrimenti rimarrebbe la scritta
         }
-
+        if(isset($_SESSION['errore_p'])&& $-SESSION['errore_p']=='true'){
+            echo"<h3> LE PASSWORD NON SONO UGUALI!</h3>";
+            unset($_SESSION['errore_p']);
+        }
     ?>
 
     <label for="username">Username</label>
@@ -40,9 +43,12 @@
 
     <label for="email">Email</label>
     <input type="email" name="email" id="email" required>
-
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
+
+
+    <label for="password">Password</label>
+    <input type="password" name="password2" id="password2" required>
 
     <span class ="bottone"><input type="submit" value="Invia">
     </span>
