@@ -28,6 +28,10 @@
             unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
         }
 
+        if(isset($_SESSION['errore_v']) && $_SESSION['errore_v'] == 'true'){//isset verifica se errore è settata
+            echo "<h3>ERRORE IN FASE DI LOGIN!</h3>";
+            unset($_SESSION['errore']);
+        }
        
 
     ?>
