@@ -20,6 +20,13 @@ $ris = mysqli_query($connessione, $controllo);
     if(mysqli_num_rows($ris) === 1){
         $_SESSION['loggato'] = 'true';
         $_SESSION['nome'] = "$username";
+        //Creazione del cookie preferenze utente senza valore   
+        $nome_cookie = 'preferenze_utente';   //il nome dell'username è univoco
+        $durata_cookie = time() + (86400*1); //il cookie dovrebbe durare quindi un giorno (numero di secondi in un giorno * nr giorni)
+        setcookie($nome_cookie, '', $durata_cookie, '/'); //settando '/' il cookie sarà accessibile nell'intero sito
+
+
+
         header('Location:../../homepage.php'); //header sono l'analogo degli href
         exit(1);
     }

@@ -1,5 +1,7 @@
 <?php
     session_start();
+    $tema_scuro='';
+    $_SESSION[$_tema_scuro]=FALSE;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -21,10 +23,18 @@
     <li><a href="https://www.lafeltrinelli.it/">Noi di solito compriamo i libri qui</a></li>
     <li><a href="https://www.qlibri.it/">Per altre recensioni clicca qui</a></li>
 
-    <?php
+    <?php   
+            echo"<button onclick> cambiatema</button>";
+            if($_SERVER["REQUEST_METHOD"]=='POST') {
+                $_SESSION[$tema_scuro]=!$_SESSION[$tema_scuro]; //nega la variabile se il form è stato inviato
+            }
+            
+            echo "<form action = \"res/PHP/dark.php\"></form>";
+
+
         if(isset($_SESSION['loggato']) && $_SESSION['loggato'] === 'true'){//isset verifica se loggato è settata
-            echo "<hr/>" $_SESSION['nome'] ."<br/>" . "<br/>";
-            echo "<a href=\"res\PHP\logout.php\">Logout</a>"
+            echo "<hr/>" . $_SESSION['nome'] . "<br/>";
+            echo "<hr/>" . "<a href=\"res\PHP\logout.php\">Logout</a>";
         }
         else{
             echo "<li><a href=\"login.php\">Login&#x1F464;</a></li>";
