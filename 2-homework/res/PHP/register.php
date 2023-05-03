@@ -11,6 +11,8 @@ $username = $connessione->real_escape_string($_POST['username']);
 $email = $connessione->real_escape_string($_POST['email']);
 $password = $connessione->real_escape_string($_POST['password']);
 $password2 = $connessione->real_escape_string($_POST['password']);
+
+$hashed_password= password_hash($password,PASSWORD_DEFAULT);
 //fare controllo se esiste email tramite query con mysql
 //fare controllo delle password se uguali in fase di registrazione
 
