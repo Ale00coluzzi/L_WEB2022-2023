@@ -10,9 +10,10 @@ $connessione = new mysqli($host, $user, $password, $db);
 $username = $connessione->real_escape_string($_POST['username']);
 $email = $connessione->real_escape_string($_POST['email']);
 $password = $connessione->real_escape_string($_POST['password']);
-$password2 = $connessione->real_escape_string($_POST['password']);
+$password2 = $connessione->real_escape_string($_POST['password2']);
 
-$hashed_password= password_hash($password,PASSWORD_DEFAULT);
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 //fare controllo se esiste email tramite query con mysql
 //fare controllo delle password se uguali in fase di registrazione
 
@@ -34,13 +35,13 @@ if(mysqli_num_rows($ris_e) > 0){
     exit(1);
 }
 
-if($password !== $password){
-    $_SESSION['errore-p']-'true';
-    header('Location:..7../register.php');
+if($password !== $password2){
+    $_SESSION['errore_p'] = 'true';
+    header('Location:../../register.php');
     exit(1);
 }
 
-$sql = "INSERT INTO utente (username, email, password) VALUES ('$username', '$email', '$password')";
+$sql = "INSERT INTO utente (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
 $ins = mysqli_query($connessione, $sql);
 
 header('Location:../../login.php');
