@@ -25,36 +25,41 @@
     <a href = "homepage.php"><img src = "res/IMG_GIF/home3.png" alt="home.png" width="10%"/></a>
 </div>
 
-<form action = "res/PHP/login.php" method="POST">
-    <h2>Esegui l'accesso</h2>
+<div class="rotating-figure">
+    <img src="res/IMG_GIF/locked_book.png" alt="locked_book.png" width="80%"/> </a>
+</div>
+
+<div class="container">
     
-    <?php
-        if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
-            echo "<h3>USERNAME O PASSWORD ERRATE!</h3>";
-            unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
-        }
+    <form action = "res/PHP/login.php" method="POST">
+        
+        <?php
+            if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>USERNAME O PASSWORD ERRATE!</h3>";
+                unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
+            }
 
-        if(isset($_SESSION['errore_v']) && $_SESSION['errore_v'] == 'true'){//isset verifica se errore è settata
-            echo "<h3>ERRORE IN FASE DI LOGIN!</h3>";
-            unset($_SESSION['errore']);
-        }
-       
+            if(isset($_SESSION['errore_v']) && $_SESSION['errore_v'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>ERRORE IN FASE DI LOGIN!</h3>";
+                unset($_SESSION['errore']);
+            }
+        
 
-    ?>
+        ?>
 
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username" required>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
 
-    <span class ="bottone"><input type="submit" value="Invia">
-    </span>
+        <span class ="bottone"><input type="submit" value="Invia">
+        </span>
 
-    <p>Non sei registrato? Fai la <a href="register.php">registrazione</p></a>
-</form>
+        <p>Non sei registrato? Fai la <a href="register.php">registrazione</p></a>
+    </form>
 
-
+</div>
 <hr/>
 <div class="crediti">
     <p>Responsabili del sito: 

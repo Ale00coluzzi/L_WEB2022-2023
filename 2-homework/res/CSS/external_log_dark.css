@@ -37,7 +37,36 @@ h3{
     top:8px;
     left:16px;
 }
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container_reg{
+    margin-top:80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
 
+.rotating-figure {
+    position:absolute;
+    top: 80px;
+    left:730px;
+    width: 80px;
+    animation: rotate 4s infinite linear;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 form{
     display:flex;
     flex-direction: column;

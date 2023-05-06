@@ -41,6 +41,7 @@ h2{
     background-color:gray;
     display: inline-block;
     border-style: solid;
+    border-radius:25px;
     text-align: center;
     margin-left: 30%;
 }
