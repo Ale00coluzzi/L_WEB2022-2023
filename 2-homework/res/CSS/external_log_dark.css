@@ -2,8 +2,8 @@ html{
     border-style: solid;
 }
 body{
-    background-color: black;
-    color:white;
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
 .titolo{
@@ -29,7 +29,7 @@ h2{
 h3{
     font-family: 'Monaco', monospace;
     font-style: oblique;
-    color:red;
+    color: #ff0000;;
 }
 
 .home{

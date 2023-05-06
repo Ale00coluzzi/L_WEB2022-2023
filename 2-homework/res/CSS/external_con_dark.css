@@ -2,8 +2,8 @@ html{
     border-style: solid;
 }
 body{
-    background-color: black;
-    color:white;
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
 .titolo{
@@ -13,7 +13,8 @@ body{
     background-color: none;
     margin:5px;
     text-align: center;
-    color: black;
+    color: #ffffff;
+}
 }
 
 .home{

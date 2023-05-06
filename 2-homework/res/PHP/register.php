@@ -40,10 +40,11 @@ if($password !== $password2){
     header('Location:../../register.php');
     exit(1);
 }
-
+// le password sono hashate, quindi una insert del genere non funzionerebbe
+/*
 $sql = "INSERT INTO utente (username, email, password) VALUES ('$username', '$email', '$hashed_password')";
 $ins = mysqli_query($connessione, $sql);
-
+*/
 header('Location:../../login.php');
 
 ?>
