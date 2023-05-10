@@ -39,7 +39,10 @@ h3 {
 }
   
 .container{
+   
     display: flex;
+    margin-top: 40px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 60vh;

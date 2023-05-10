@@ -29,12 +29,12 @@
 
 <?php
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-        echo "</ class=\"home\">";
+        echo "<div class=\"home\">";
         echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
         echo"</div>";
     }
     else{
-        echo "</ class=\"home\">";
+        echo "<div class=\"home\">";
         echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
         echo"</div>";
     }
