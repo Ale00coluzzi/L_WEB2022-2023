@@ -43,6 +43,15 @@ h3 {
     justify-content: center;
     align-items: center;
     height: 60vh;
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    color:#ffffff;
+    font-size: 20px;
+    background-color:#1a1a1a;
+    border-style:solid;
+    border-radius:25px;
+    padding:20px;
+
 }
 
 
