@@ -1,4 +1,15 @@
 <?php
+
+require_once('res/PHP/connection.php');
+
+// Crea la connessione col server
+$conn = new mysqli($host, $user, $password);
+
+//Controllo sulla connessione
+if($conn->connect_error) {
+    die("Connessione fallita: " . $conn->connect_error);
+}
+
 // Crea il database se non esiste già
 $sql = "CREATE DATABASE IF NOT EXISTS $db";
 
@@ -7,16 +18,16 @@ if ($conn->query($sql) === FALSE) {
 }
 
 // Seleziona il database con cui vogliamo operare
-$conn->select_db($db);
+$conn = new mysqli($host, $user, $password, $db);
 
 //Crea la tabella utente se non esistente
 //E' necessario mettere al campo id 'AUTO_INCREMENT' altrimenti inserito il secondo utente darebbe errore
 //N.B. è essenziale porre l'accento grave ` al posto dell'apostrofo ' altrimenti darebbe errore -_-
-$tab_utente = "CREATE TABLE IF NOT EXISTS utente (
+$tab_utente = "CREATE TABLE IF NOT EXISTS `utente` (
     `id` int(11) NOT NULL AUTO_INCREMENT,               
     `username` varchar(30) NOT NULL,
     `email` varchar(50) NOT NULL,
-    password varchar(255) NOT NULL,
+    `password` varchar(255) NOT NULL,
     PRIMARY KEY (id)
 )";
 
@@ -25,12 +36,12 @@ if ($conn->query($tab_utente) === FALSE) {
 }
 
 //Crea la tabella autore se non esistente
-$tab_autore = "CREATE TABLE IF NOT EXISTS autore (
+$tab_autore = "CREATE TABLE IF NOT EXISTS `autore` (
     `id` int(11) NOT NULL AUTO_INCREMENT,               
     `nome` varchar(30) NOT NULL,
     `cognome` varchar(30) NOT NULL,
     `nazionalita` varchar(30) NOT NULL,
-    data date,
+    `data` date,
     PRIMARY KEY (id)
 )";
 
@@ -39,7 +50,7 @@ if ($conn->query($tab_autore) === FALSE) {
 }
 
 //Crea la tabella libro se non esistente
-$tab_libro = "CREATE TABLE IF NOT EXISTS libro(
+$tab_libro = "CREATE TABLE IF NOT EXISTS `libro`(
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `titolo` varchar(50) NOT NULL,
     `ISBN13` int(13) NOT NULL,
@@ -56,9 +67,9 @@ if ($conn->query($tab_libro) === FALSE) {
 }
 
 //Crea la tabella recensione se non esistente
-$tab_recensione = "CREATE TABLE IF NOT EXISTS recensione(
+$tab_recensione = "CREATE TABLE IF NOT EXISTS `recensione`(
     `id` int(11) NOT NULL AUTO_INCREMENT,
-    `utente_IDv int(11) NOT NULL,
+    `utente_ID` int(11) NOT NULL,
     `libro_ID` int(11) NOT NULL,
     `testo` varchar(800) NOT NULL,
     `voto` decimal(2,1) NOT NULL,
@@ -71,11 +82,10 @@ if ($conn->query($tab_recensione) === FALSE) {
     echo "Errore nella creazione della tabella utente " . $conn->error;
 }
 
-$ins_utente="INSERT INTO `utente`(`username`, `utente`, `password`)
-    VALUES('prova', 'prova1@gmail.com', 'prova')";
+//alla fine della creazione siverrà reindirizzati alla homepage
+header('Location: homepage.php');
 
-// alla fine della creazione si verrà reindirizzati  alla homepage
-header('location:../../homepage.php');
-
+// Chiude la connessione al database
+$conn->close();
 
 ?>

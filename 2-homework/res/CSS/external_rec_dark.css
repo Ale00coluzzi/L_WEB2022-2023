@@ -3,8 +3,8 @@ html{
 }
 
 body{
-    background-color: #1a1a1a;
-    color: #ffffff;
+  background-color: #1a1a1a;
+  color: #ffffff;
 }
 
 .titolo{
@@ -16,14 +16,14 @@ body{
     text-align: center;
 }
 
-.home{
+.home {
     position: absolute;
-    top:8px;
-    left:16px;
+    top: 8px;
+    left: 16px;
 }
 
 .main{
-    margin-top: 20px;
+    margin-left: 160px; /* Stessa larghezza della barra per evitare la barra*/
     font-size: 20px; /* Aumento la dimensione del testo*/
     padding: 0px 10px;
 }
@@ -33,17 +33,6 @@ h2{
     font-style: oblique;
 }
 
-.libro{
-    padding:20px;
-    padding-top:10px;
-    padding-bottom:10px;
-    background-color: grey;
-    display: inline-block;
-    border-style: solid;
-    border-radius: 25px;
-    text-align: center;
-    margin-left: 30%;
-}
 
 .crediti{
     font-family: 'Monaco', monospace;

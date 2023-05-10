@@ -72,7 +72,7 @@ h2{
     background-color: white;
     display: inline-block;
     border-style: solid;
-    border-radius:25px;
+    border-radius: 25px;               /*serve per inserire bordi curvi*/
     margin-inline-start: 150px;        /*distanza tra la fine della prima casella e l'inizio dell'altra*/
     list-style: none;
   }
@@ -87,12 +87,11 @@ h2{
     
   }
 
-  button{
-    margin-right: 10px;
-    width: 40px;
-  }
+button{
+  margin-right: 10px;
+  width: 40px;
+}  
 
-  
 .crediti{
     font-family: 'Monaco', monospace;
     font-style: oblique;

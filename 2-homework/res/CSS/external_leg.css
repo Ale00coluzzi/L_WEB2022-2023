@@ -1,6 +1,7 @@
 html{
     border-style: solid;
 }
+
 body{
     background-color: rgb(239, 209, 179);
 }
@@ -39,7 +40,7 @@ h2{
     background-color: white;
     display: inline-block;
     border-style: solid;
-    border-radius:25px;
+    border-radius: 25px;
     text-align: center;
     margin-left: 30%;
 }

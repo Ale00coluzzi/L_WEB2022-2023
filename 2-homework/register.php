@@ -1,10 +1,11 @@
 <?php
     session_start();
-    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"]=="scuro") {
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_log_dark.css\"type=\"text/css\"/>";
+
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_log_dark.css\" type=\"text/css\" />";
     }
     else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_log.css\"type=\"text/css\"/>";
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_log.css\" type=\"text/css\" />";
     }
 ?>
 
@@ -15,40 +16,54 @@
 
 <head>
     <title>La casa del libro: recensioni, letture... </title>
-
 </head>
 
 <body>
     <h1 class="titolo">PAGINA DI REGISTRAZIONE</h1>
 
-<div class="home">
-    <a href = "homepage.php"><img src = "res/IMG_GIF/home3.png" alt="home.png" width="10%"/></a>
-</div>
 
-<div class="rotating-figure">
-    <img src="res/IMG_GIF/locked_book.png" alt="locked_book.png" width="80%"/> </a>
-</div>
+    
+
+<?php
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "<div class=\"rotating-figure\">";
+        echo "<img src = \"res/IMG_GIF/locked_book_dark.png\" alt=\"locked_book_dark.png\"/></img>";
+        echo "</div>";
+        echo "</ class=\"home\">";
+        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo"</div>";
+
+    }
+    else{
+        echo "<div class=\"rotating-figure\">";
+        echo "<img src = \"res/IMG_GIF/locked_book.png\" alt=\"locked_book.png\"/></img>";
+        echo "</div>";
+        echo "</ class=\"home\">";
+        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo"</div>";
+    }
+?>  
 
 <div class="container_reg">
 
     <form action = "res/PHP/register.php" method="POST">
-    
+
         <?php
             if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
-            echo "<h3>USERNAME GIÀ INSERITO!</h3>";
-            unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
+                echo "<h3>USERNAME GIÀ INSERITO!</h3>";
+                unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
             }
 
             if(isset($_SESSION['errore_e']) && $_SESSION['errore_e'] == 'true'){//isset verifica se errore è settata
-            echo "<h3>EMAIL GIÀ ESISTENTE!</h3>";
-            unset($_SESSION['errore_e']);//la unsetto altrimenti rimarrebbe la scritta
-             }
+                echo "<h3>EMAIL GIÀ ESISTENTE!</h3>";
+                unset($_SESSION['errore_e']);//la unsetto altrimenti rimarrebbe la scritta
+            }
         
             if(isset($_SESSION['errore_p']) && $_SESSION['errore_p'] == 'true'){
-            echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
-            unset($_SESSION['errore_p']);
+                echo "<h3>LE PASSWORD NON SONO UGUALI!</h3>";
+                unset($_SESSION['errore_p']);
             }
-         ?>
+        ?>
 
         <label for="username">Username</label>
         <input type="text" name="username" id="username" required>
@@ -65,10 +80,10 @@
         <span class ="bottone"><input type="submit" value="Invia">
         </span>
 
-         <p>Sei già registrato? Fai il <a href="login.php">login</p></a>
+        <p>Sei già registrato? Fai il <a href="login.php">login</p></a>
     </form>
 </div>
-
+        
 <hr/>
 <div class="crediti">
     <p>Responsabili del sito: 

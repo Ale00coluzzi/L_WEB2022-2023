@@ -14,7 +14,6 @@ body{
     background-color: none;
     margin:5px;
     text-align: center;
-  
 }
 
 .main{
@@ -41,7 +40,7 @@ h2{
     width: 160px;
     font-family: Arial, Verdana, sans-serif;         /*mostra le scritte nel font Arial, se esso non è presente nel browser dell'utente mostra Verdana e così via*/
     list-style: none;
-    background-color:grey;
+    background-color: grey;
     border-style: solid;
     text-align: center;
   }
@@ -53,28 +52,26 @@ h2{
   .menu li a {
     display: block;
     padding: 10px;
+    color: #ffffff;
     text-decoration: none;                   /*rimuove la sottolineatura dei link*/
-    color: white;
   }
   
   .menu li a:hover {
-    background-color: #1a1a1a;;                /*definisce il tipo di visualizzazione (colore di background) del link quando ci sta il cursore*/
-    color: #fff;                               /* colore del testo*/
+    background-color: #1a1a1a;                /*definisce il tipo di visualizzazione (colore di background) del link quando ci sta il cursore*/                            
   }
 
 .lista{
     text-align: center;
-    color: white;
 }
 
   .lista ul{
     padding:20px;
     padding-top:10px;
     padding-bottom:10px;
-    background-color:#1a1a1a;
+    background-color: #1a1a1a;
     display: inline-block;
     border-style: solid;
-    border-radius:25px;
+    border-radius: 25px;
     margin-inline-start: 150px;        /*distanza tra la fine della prima casella e l'inizio dell'altra*/
     list-style: none;
   }
@@ -89,12 +86,11 @@ h2{
     
   }
 
-  button{
-    margin-right: 10px;
-    width: 40px;
-  }
+button{
+  margin-right: 10px;
+  width: 40px;
+}  
 
-  
 .crediti{
     font-family: 'Monaco', monospace;
     font-style: oblique;

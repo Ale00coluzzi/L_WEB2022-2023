@@ -1,11 +1,11 @@
 <?php
     session_start();
-    
-    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"]=="scuro") {
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_hmp_dark.css\"type=\"text/css\"/>";
+
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_hmp_dark.css\" type=\"text/css\" />";
     }
     else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_hmp.css\"type=\"text/css\"/>";
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_hmp.css\" type=\"text/css\" />";
     }
 ?>
 
@@ -16,6 +16,7 @@
 
 <head>
     <title>La casa del libro: recensioni, letture... </title>
+    
 </head>
 
 <body>
@@ -27,27 +28,26 @@
     <li><a href="https://www.lafeltrinelli.it/">Noi di solito compriamo i libri qui</a></li>
     <li><a href="https://www.qlibri.it/">Per altre recensioni clicca qui</a></li>
 
-    <?php    
-            echo "<form action = \"res/PHP/dark.php\" method='POST'>"; //submit serve per inviare il valore a questo file
-            echo"<button name=\"bottone_c\" type=\"submit\" value=\"chiaro\">&#x2600</button>";
-            echo"<button name=\"bottone_s\" type=\"submit\" value=\"scuro\">&#x1F315</button>";
-            echo"</form>";
+    <?php   
+        echo "<form action = \"res/PHP/dark.php\" method='POST'>";
+        echo "<button name=\"bottone_c\" type=\"submit\" value= \"chiaro\">&#x2600</button>";
+        echo "<button name=\"bottone_s\" type=\"submit\" value= \"scuro\">&#x1F315</button>";
+        echo "</form>";
 
-        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] === 'true'){//isset verifica se loggato è settata
+        if(isset($_SESSION['loggato']) && $_SESSION['loggato'] === 'true'){     //isset verifica se loggato è settata
             echo "<hr/>" . $_SESSION['nome'] . "<br/>";
+            echo "<hr/>" . "<a href=\"recensione.php\">Scrivi una recensione</a>";
             echo "<hr/>" . "<a href=\"res\PHP\logout.php\">Logout</a>";
         }
         else{
             echo "<li><a href=\"login.php\">Login&#x1F464;</a></li>";
         }
     ?>
-
   </ul>
 
 <div class="main">
     <h2>Benvenuti nella casa del libro!&#x1F4D6;</h2>
     <p>Ciao a tutti, siamo Luca ed Alessandra, se vi piace leggere allora siete nel posto giusto! Condivideremo con voi la nostra passione per la lettura.</p>
-
     <h2>Che tipo di lettori siamo?</h2>
 
 </div> 
@@ -79,6 +79,7 @@
 </div>
 
 <div class="main">
+
     <h2>Cos'è per noi leggere?&#x1F4DA;</h2>
     <p>
         "Interrogo i libri e mi rispondono. Alcuni mi portano il riso sulle labbra o la consolazione nel cuore.
@@ -88,8 +89,6 @@
     <p>
         "Dimmi ciò che leggi e ti dirò chi sei' è vero; ma ti conoscerei meglio se mi dicessi quello che rileggi" -François Mauriac
     </p>
-
-
 </div>
 
 <hr/>
