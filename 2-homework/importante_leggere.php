@@ -1,14 +1,13 @@
 <?php
     session_start();
-    
-    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"]=="scuro") {
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_leg_dark.css\"type=\"text/css\"/>";
+
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_leg_dark.css\" type=\"text/css\" />";
     }
     else{
-        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_leg.css\"type=\"text/css\"/>";
+        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_leg.css\" type=\"text/css\" />";
     }
 ?>
-<?xml version = "1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -16,15 +15,23 @@
 
 <head>
     <title>Perché è importante leggere... </title>
-    
 </head>
 
 <body>
     <h1 class="titolo">PERCHÉ È IMPORTANTE LEGGERE?&#x1F914;</h1>
+    <?php
+    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
+        echo "</ class=\"home\">";
+        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo"</div>";
 
-<div class="home">
-    <a href = "homepage.php"><img src = "res/IMG_GIF/home3.png" alt="home.png" width="10%"/></a>
-</div>
+    }
+    else{
+        echo "</ class=\"home\">";
+        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo"</div>";
+    }
+?>  
 
 <div class="main">
     <h2>“Non si nasce con l’istinto della lettura, come si nasce con quello di mangiare o bere.”</h2>
