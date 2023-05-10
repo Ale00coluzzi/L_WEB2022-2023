@@ -1,10 +1,6 @@
 <?php
    session_start();
 
-    require("res/PHP/connection.php");
-
-    $connessione = new mysqli($host, $user, $password, $db);
-
    if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
        echo "<link rel=\"stylesheet\" href=\"res/CSS/external_lis_dark.css\" type=\"text/css\" />";
    }
@@ -25,48 +21,51 @@
 <body>
     <h1 class="titolo">CATALOGO LIBRI</h1>
 
-
-
 <?php
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
     else{
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
 ?> 
 
 <div class="container">
-    <h3> Ecco i titoli nel database</h3>
+
     <?php
 
         require("res/PHP/connection.php");
 
         $connessione = new mysqli($host, $user, $password, $db);
-
-        $query = "SELECT l.titolo  FROM libro l";
+        
+        $query = "SELECT* FROM libro";
         $result = mysqli_query($connessione, $query);
 
         if (mysqli_num_rows($result) > 0) {
 
             while ($row = mysqli_fetch_assoc($result)) {
-                echo $row['titolo'] . "<br/>" . "<br/>" ;
+                
+                echo"<div class = row>";
+                    echo"<div class = item>";
+                        echo "<p>" . $row['titolo'] . "<br/>" . "<br/>" . "</p>";
+                        $img_bin = $row['immagine'];
+                        echo '<img src="data:image/jpeg;base64,' . $img_bin . '" alt="Immagine">';
+                    echo"</div>";
+                echo"</div>";
             }
         } 
-
+        
         else {
-            echo "Nessun record trovato.";
+            echo "Nessun record trovato";
         }
 
         mysqli_close($connessione);
     ?>
-<form action = "res/PHP/login.php" method="POST">
-    
-    
+
 </div>
 
 <hr/>

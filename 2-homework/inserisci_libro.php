@@ -20,32 +20,33 @@
 
 <body>
     <h1 class="titolo">INSERISCI LIBRO</h1>
+
 <?php
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
-
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
     else{
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
 ?>  
 
+<?php
+        if(isset($_SESSION['errore_i']) && $_SESSION['errore_i'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>ISBN GIA' INSERITO!</h3>";
+            unset($_SESSION['errore_i']);//la unsetto altrimenti rimarrebbe la scritta
+        }
+
+        if(isset($_SESSION['errore_t']) && $_SESSION['errore_t'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>TITOLO GIA' INSERITO!</h3>";
+            unset($_SESSION['errore_t']);//la unsetto altrimenti rimarrebbe la scritta
+        }
+    ?>
+
 <div class="container">
-    
-    <?php //serve a verificare se l'ISBN è già stato inserito
-                if(isset($_SESSION['_i']) && $_SESSION['_i'] == 'true'){//isset verifica se errore è settata
-                    echo "<h3>ISBN GIÀ INSERITO!</h3>";
-                    unset($_SESSION['errore_i']);//la unsetto altrimenti rimarrebbe la scritta
-                }
-                if(isset($_SESSION['errore_t']) && $_SESSION['errore_t'] == 'true'){//isset verifica se errore è settata
-                    echo "<h3>TITOLO GIÀ INSERITO!</h3>";
-                    unset($_SESSION['errore_t']);//la unsetto altrimenti rimarrebbe la scritta
-                }
-    ?>  
 
     <form action = "res/PHP/inserisci_libro.php" method="POST" enctype="multipart/form-data">
 
@@ -54,23 +55,21 @@
 
         <label for="ISBN">ISBN-13</label>
         <input type="text" pattern="[0-9]{13}" maxlength="13" name="ISBN" id="ISBN" required>
-        
+
         <label for="lunghezza">Numero Pagine</label>
         <input type="text" pattern="[0-9]{1,4}" maxlength="4" name="lunghezza" id="lunghezza" required>
-        
+    
         <label for="data">Data di uscita</label>
         <input type="date" name="data" id="data" required>
-
+        
         <label for="autore">Autore</label>
         <input type="text" name="autore" id="autore" required>
-        
+
         <label for="img">Inserisci la copertina del libro</label>
         <input type="file" name="img" id="img">
 
-
         <span class ="bottone"><input type="submit" value="Invia">
         </span>
-
         
     </form>
 </div>

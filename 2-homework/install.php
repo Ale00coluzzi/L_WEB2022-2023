@@ -35,14 +35,11 @@ if ($conn->query($tab_utente) === FALSE) {
     echo "Errore nella creazione della tabella utente " . $conn->error;
 }
 
-
-
-
 //Crea la tabella libro se non esistente
 $tab_libro = "CREATE TABLE IF NOT EXISTS `libro`(
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `titolo` varchar(50) NOT NULL,
-    `ISBN13` int(13) NOT NULL,
+    `ISBN13` varchar(13) NOT NULL,
     `lunghezza` int(4) NOT NULL,
     `data_uscita` date NOT NULL,
     `immagine` BLOB NOT NULL,

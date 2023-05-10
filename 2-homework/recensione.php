@@ -22,50 +22,48 @@
 <body>
     <h1 class="titolo">RECENSIONI! </h1>
 
-    <?php
+<?php
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
-
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
     else{
         echo "<div class=\"home\">";
-        echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
-        echo"</div>";
+        echo "<a href = \"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
+        echo "</div>";
     }
-?>  
+?> 
+
 <div class="container">
+    
+    <form action = "res/PHP/recensione.php" method="POST">
 
-<form action = "res/PHP/recensione.php" method="POST">
-   
-<?php
-    if(isset($_SESSION['errore_uu']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
-        echo "<h3>USERNAME GIÀ INSERITO!</h3>";
-        unset($_SESSION['errore_uu']);//la unsetto altrimenti rimarrebbe la scritta
-    }
+    <?php
+            if(isset($_SESSION['errore_uu']) && $_SESSION['errore_uu'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>NOME DEL UTENTE NON TROVATO!</h3>";
+                unset($_SESSION['errore_uu']);//la unsetto altrimenti rimarrebbe la scritta
+            }
 
-    if(isset($_SESSION['errore_tt']) && $_SESSION['errore_e'] == 'true'){//isset verifica se errore è settata
-        echo "<h3>ETITOLIO DEL LIBRO NON TROVATO!</h3>";
-        unset($_SESSION['errore_tt']);//la unsetto altrimenti rimarrebbe la scritta
-    }
-        
-            
-?>
+            if(isset($_SESSION['errore_tt']) && $_SESSION['errore_tt'] == 'true'){//isset verifica se errore è settata
+                echo "<h3>TITOLO DEL LIBRO NON TROVATO!</h3>";
+                unset($_SESSION['errore_tt']);//la unsetto altrimenti rimarrebbe la scritta
+            }
+    ?>
 
-<label for="titolo">Inserisci il titolo</label>
-    <input type="text" name="titolo" id="titolo" required>
+        <label for="titolo">Inserisci il titolo che vuoi recensire</label>
+        <input type="text" name="titolo" id="titolo" required>
+    
+        <label for="testo">Inserisci recensione</label>
+        <textarea name="testo" id="testo" required></textarea>
 
-    <label for="testo">Inserisci recensione</label>
-    <textarea name="testo" id="testo" required> </textarea>
+        <label for="voto">Inserisci il voto</label>
+        <input type="number" step="0.5" min="0" max="10" name="voto" id="voto" required>
 
-    <label for="voto">Inserisci il voto</label>
-    <input type="number" step="0.5" min="0" max="10" name="decimalNumber" id="decimalNumber" required>
+        <span class ="bottone"><input type="submit" value="Invia">
+        </span>
 
-    <span class ="bottone"><input type="submit" value="Invia">
-    </span>
-
-</form>
+    </form>
 </div>
 
 <hr/>

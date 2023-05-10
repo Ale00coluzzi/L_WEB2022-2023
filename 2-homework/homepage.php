@@ -25,7 +25,7 @@
    <ul class="menu">
     <li><a href="importante_leggere.php">Perché è importante leggere?</a></li>
     <li><a href="consigliati.php">Recensioni a confronto</a></li>
-    <li><a href="lista_libri.php"> I libri presenti sul sito </a></li> 
+    <li><a href="lista_libri.php">I libri presenti sul sito</a></li>
     <li><a href="https://www.lafeltrinelli.it/">Noi di solito compriamo i libri qui</a></li>
     <li><a href="https://www.qlibri.it/">Per altre recensioni clicca qui</a></li>
 
@@ -37,9 +37,9 @@
 
         if(isset($_SESSION['loggato']) && $_SESSION['loggato'] === 'true'){     //isset verifica se loggato è settata
             echo "<hr/>" . $_SESSION['nome'] . "<br/>";
-            echo "<hr/>" . "<a href=\"inserisci_libro.php\">Aggiungi un libro</a>" . "<br/>" ."<br/>";
+            echo "<hr/>" . "<a href=\"inserisci_libro.php\">Aggiungi un libro</a>" . "<br/>" . "<br/>";
             echo "<a href=\"recensione.php\">Scrivi una recensione</a>";
-            echo "<br/>" .  "<br/>" . "<a href=\"res\PHP\logout.php\">Logout</a>";
+            echo "<br/>" . "<br/>" . "<a href=\"res\PHP\logout.php\">Logout</a>";
         }
         else{
             echo "<li><a href=\"login.php\">Login&#x1F464;</a></li>";

@@ -16,18 +16,12 @@ body{
     color: black;
 }
 
-
-
 h2{
     font-family: 'Monaco', monospace;
     font-style: oblique;
 }
 
-h3{
-    font-family: 'Monaco', monospace;
-    font-style: oblique;
-    color:red;
-}
+
 
 .home{
     position: absolute;
@@ -35,23 +29,43 @@ h3{
     left:16px;
 }
 
-.container{
-    display: flex;
+.container {
     margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    background-color: white;
+    border-style: solid;
+    border-radius: 25px;
+    margin: 20px;
+  }
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+  
+.item img {
+    width: 100px;
+}
+  
+.item p {
+    margin-top: 10px;
     font-family: 'Monaco', monospace;
     font-style: oblique;
-    color: black;
     font-size: 20px;
-    background-color: white;
-    border-style:solid;
-    border-radius:25px;
-    padding:20px;
-
-}
+    color: black;
+} 
 
 .crediti{
     font-family: 'Monaco', monospace;
