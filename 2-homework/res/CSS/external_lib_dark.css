@@ -30,7 +30,11 @@ html {
     font-style: oblique;
   }
   
-
+  h3{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    color:red;
+}
 
 .home {
     position: absolute;
@@ -55,6 +59,7 @@ input{
 }
 
 .container{
+    margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
