@@ -47,7 +47,7 @@
                 }
     ?>  
 
-    <form action = "res/PHP/inserisci_libro.php" method="POST">
+    <form action = "res/PHP/inserisci_libro.php" method="POST" enctype="multipart/form-data">
 
         <label for="titolo">Titolo</label>
         <input type="text" name="titolo" id="titolo" required>
