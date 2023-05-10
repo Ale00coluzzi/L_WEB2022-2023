@@ -15,11 +15,33 @@ body{
     text-align: center;
     color: black;
 }
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
 
 .home {
     position: absolute;
     top: 8px;
     left: 16px;
+}
+
+form{
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+form label{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+input{
+    margin-bottom: 20px;
 }
 
 .main{

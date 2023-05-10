@@ -15,6 +15,12 @@ body{
     margin:5px;
     text-align: center;
 }
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
 
 .home {
     position: absolute;
@@ -22,6 +28,21 @@ body{
     left: 16px;
 }
 
+form{
+    display:flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+form label{
+    font-family: 'Monaco', monospace;
+    font-style: oblique;
+    margin-bottom: 10px;
+}
+
+input{
+    margin-bottom: 20px;
+}
 .main{
     margin-left: 160px; /* Stessa larghezza della barra per evitare la barra*/
     font-size: 20px; /* Aumento la dimensione del testo*/
