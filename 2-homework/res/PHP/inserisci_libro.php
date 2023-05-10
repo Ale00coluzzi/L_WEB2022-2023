@@ -8,24 +8,24 @@ $connessione = new mysqli($host, $user, $password, $db);
 
 //real_escape_string() è una funzione usata per creare una stringa valida per SQL
 $titolo = $connessione->real_escape_string($_POST['titolo']);
-$ISBN = $connessione->real_escape_string($_POST['ISBN']);
-$lunghezza = $connessione->real_escape_string($_POST['lunghezza']);
+$ISBN = intval($connessione->real_escape_string($_POST['ISBN'])); //converto la stringa in intero
+$lunghezza = intval($connessione->real_escape_string($_POST['lunghezza'])); //converto la stringa in intero
 $data = $connessione->real_escape_string($_POST['data']);
 $autore = $connessione->real_escape_string($_POST['autore']);
 $img= $connessione->real_escape_string($_POST['img']);
 
 
-$controllo_ISBN = "SELECT* FROM libro l WHERE l.libro = '$ISBN'"; 
+$controllo_ISBN = "SELECT* FROM libro l WHERE l.ISBN13 = '$ISBN'"; 
 $ris = mysqli_query($connessione, $controllo_ISBN);
 
 if(mysqli_num_rows($ris) > 0){
-    $_SESSION['errore'] = 'true';
+    $_SESSION['errore_i'] = 'true';
     header('Location:../../inserisci_libro.php'); //header sono l'analogo degli href
     exit(1);
 }
 
 $controllo_titolo = "SELECT* FROM libro l WHERE l.titolo = '$titolo'";
-$ris_e = mysqli_query($connessione, $controllo_titolo);
+$ris_t = mysqli_query($connessione, $controllo_titolo);
 
 if(mysqli_num_rows($ris_t) > 0){
     $_SESSION['errore_e'] = 'true';

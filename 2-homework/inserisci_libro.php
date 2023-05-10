@@ -22,13 +22,13 @@
     <h1 class="titolo">INSERISCI LIBRO</h1>
 <?php
     if(isset($_COOKIE["tema"]) && $_COOKIE["tema"] == "scuro"){
-        echo "</ class=\"home\">";
+        echo "<div class=\"home\">";
         echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home2.png\" alt=\"home.png\" width=\"10%\"/></a>";
         echo"</div>";
 
     }
     else{
-        echo "</ class=\"home\">";
+        echo "<div class=\"home\">";
         echo"<a href =\"homepage.php\"><img src = \"res/IMG_GIF/home.png\" alt=\"home.png\" width=\"10%\"/></a>";
         echo"</div>";
     }
@@ -37,11 +37,11 @@
 <div class="container">
     
     <?php //serve a verificare se l'ISBN è già stato inserito
-                if(isset($_SESSION['errore']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
+                if(isset($_SESSION['_i']) && $_SESSION['_i'] == 'true'){//isset verifica se errore è settata
                     echo "<h3>ISBN GIÀ INSERITO!</h3>";
-                    unset($_SESSION['errore']);//la unsetto altrimenti rimarrebbe la scritta
+                    unset($_SESSION['errore_i']);//la unsetto altrimenti rimarrebbe la scritta
                 }
-                if(isset($_SESSION['errore_t']) && $_SESSION['errore'] == 'true'){//isset verifica se errore è settata
+                if(isset($_SESSION['errore_t']) && $_SESSION['errore_t'] == 'true'){//isset verifica se errore è settata
                     echo "<h3>TITOLO GIÀ INSERITO!</h3>";
                     unset($_SESSION['errore_t']);//la unsetto altrimenti rimarrebbe la scritta
                 }
@@ -50,10 +50,10 @@
     <form action = "res/PHP/inserisci_libro.php" method="POST">
 
         <label for="titolo">Titolo</label>
-        <input type="text" name="username" id="username" required>
+        <input type="text" name="titolo" id="titolo" required>
 
         <label for="ISBN">ISBN-13</label>
-        <input type="text" pattern="[0-9]{13}" maxlength="13" name="numero" id="numero" required>
+        <input type="text" pattern="[0-9]{13}" maxlength="13" name="ISBN" id="ISBN" required>
         
         <label for="lunghezza">Numero Pagine</label>
         <input type="text" pattern="[0-9]{1,4}" maxlength="4" name="lunghezza" id="lunghezza" required>
