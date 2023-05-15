@@ -15,6 +15,7 @@ $autore = $connessione->real_escape_string($_POST['autore']);
 
 // Verifica se è stato caricato l'immagine
 if(isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+
     $img_tmp_name = $_FILES['img']['tmp_name'];
     $img_name = $_FILES['img']['name'];
 
@@ -23,13 +24,14 @@ if(isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
 
     // Codifica l'immagine in binario utilizzando base64
     $img_base64 = base64_encode($img_bin);
-
     $img = $connessione->real_escape_string($img_base64);
+    
 } else {
     // Se non è stato caricato alcun file o si è verificato un errore -> valore vuoto
     $img = ""; 
 }
 
+//controllo se l'ISBN inserito già esiste nel db
 $controllo_ISBN = "SELECT* FROM libro l WHERE l.ISBN13 = '$ISBN'"; 
 $ris = mysqli_query($connessione, $controllo_ISBN);
 
